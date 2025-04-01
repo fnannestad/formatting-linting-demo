@@ -1,0 +1,12 @@
+{
+  "name": "formatting-linting-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^9.23.0",
+    "knip": "^5.46.4",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  }
+}
