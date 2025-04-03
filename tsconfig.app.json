@@ -6,6 +6,7 @@
 		"lib": ["ES2020", "DOM", "DOM.Iterable"],
 		"module": "ESNext",
 		"skipLibCheck": true,
+		"typeRoots": ["./node_modules/@types", "./custom-types"],
 
 		/* Bundler mode */
 		"moduleResolution": "bundler",
@@ -27,5 +28,5 @@
 		"allowUnusedLabels": false,
 		"allowUnreachableCode": false
 	},
-	"include": ["src", "eslint.config.ts"]
+	"include": ["src", "eslint.config.ts", "custom-types"]
 }

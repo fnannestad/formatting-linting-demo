@@ -6,6 +6,20 @@ import reactRefresh from "eslint-plugin-react-refresh"
 import react from "eslint-plugin-react"
 import preferFunctionComponent from "eslint-plugin-react-prefer-function-component/config"
 import stylistic from "@stylistic/eslint-plugin"
+import spellcheck from "eslint-plugin-spellcheck"
+
+const spellcheckSkipWords = [
+	"spellcheck",
+	"globals",
+	"tseslint",
+	"dist",
+	"ecma",
+	"tsconfig",
+	"plugins",
+	"eqeqeq",
+	"vite",
+	"lang"
+]
 
 export default tseslint.config(
 	{ ignores: ["dist"] },
@@ -30,7 +44,9 @@ export default tseslint.config(
 		},
 		plugins: {
 			react,
-			stylistic
+			stylistic,
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+			spellcheck
 		},
 		settings: {
 			react: {
@@ -57,7 +73,19 @@ export default tseslint.config(
 			"react/jsx-fragments": ["error", "syntax"],
 			"react/jsx-no-useless-fragment": ["error", { allowExpressions: true }],
 			"react/jsx-newline": ["error", { prevent: true }],
-			"react/self-closing-comp": "error"
+			"react/self-closing-comp": "error",
+			"spellcheck/spell-checker": [
+				"error",
+				{
+					lang: "en_AU",
+					minLength: 4,
+					skipIfMatch: [
+						// Ordinals, m (meters) and CSS (vw, vh)
+						"(?<=[0-9])(?:st|nd|rd|th|m|vw|vh)"
+					],
+					skipWords: spellcheckSkipWords
+				}
+			]
 		}
 	}
 )
