@@ -8,3 +8,4 @@ Demonstrates some recommended configuration files for the following tools:
 4. Prettier
 
 more to come
+test
