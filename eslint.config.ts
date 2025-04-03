@@ -3,9 +3,9 @@ import tseslint from "typescript-eslint"
 import eslintConfigPrettier from "eslint-config-prettier/flat"
 import reactHooks from "eslint-plugin-react-hooks"
 import reactRefresh from "eslint-plugin-react-refresh"
-import stylistic from "@stylistic/eslint-plugin"
 import react from "eslint-plugin-react"
 import preferFunctionComponent from "eslint-plugin-react-prefer-function-component/config"
+import stylistic from "@stylistic/eslint-plugin"
 
 export default tseslint.config(
 	{ ignores: ["dist"] },
@@ -27,8 +27,9 @@ export default tseslint.config(
 			tseslint.configs.strictTypeChecked,
 			tseslint.configs.stylisticTypeChecked,
 			tseslint.configs.eslintRecommended,
-			react.configs.flat.recommended,
-			react.configs.flat["jsx-runtime"],
+			stylistic.configs.recommended,
+			...(react.configs.flat["recommended"] ? [react.configs.flat["recommended"]] : []),
+			...(react.configs.flat["jsx-runtime"] ? [react.configs.flat["jsx-runtime"]] : []),
 			reactRefresh.configs.recommended,
 			reactHooks.configs["recommended-latest"],
 			preferFunctionComponent.configs.recommended,
@@ -52,7 +53,6 @@ export default tseslint.config(
 			"default-case-last": "error",
 			"default-param-last": "error",
 			"eqeqeq": "error",
-			"no-unneeded-ternary": "error",
 			"prefer-template": "error",
 			"react/jsx-curly-brace-presence": ["error", { props: "never", children: "never" }],
 			"react/jsx-fragments": ["error", "syntax"],

@@ -27,5 +27,5 @@
 		"allowUnusedLabels": false,
 		"allowUnreachableCode": false
 	},
-	"include": ["src"]
+	"include": ["src", "eslint.config.ts"]
 }
