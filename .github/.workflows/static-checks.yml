@@ -1,0 +1,19 @@
+name: Static Checks
+
+on: push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  node-version: "23"
+            - name: Install modules
+              run: yarn
+            - name: Lint
+              run: yarn lint-nofix
+            - name: Prettier
+              run: yarn prettier-nofix
+            - name: Knip
+              run: yarn knip
