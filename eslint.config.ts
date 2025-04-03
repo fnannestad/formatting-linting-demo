@@ -9,8 +9,17 @@ import stylistic from "@stylistic/eslint-plugin"
 
 export default tseslint.config(
 	{ ignores: ["dist"] },
+	tseslint.configs.eslintRecommended,
+	tseslint.configs.strictTypeChecked,
+	tseslint.configs.stylisticTypeChecked,
+	stylistic.configs.recommended,
+	...(react.configs.flat["recommended"] ? [react.configs.flat["recommended"]] : []),
+	...(react.configs.flat["jsx-runtime"] ? [react.configs.flat["jsx-runtime"]] : []),
+	reactHooks.configs["recommended-latest"],
+	reactRefresh.configs.recommended,
+	preferFunctionComponent.configs.recommended,
+	eslintConfigPrettier,
 	{
-		files: ["**/*.{ts,tsx}"],
 		languageOptions: {
 			ecmaVersion: 2020,
 			globals: globals.browser,
@@ -21,20 +30,8 @@ export default tseslint.config(
 		},
 		plugins: {
 			react,
-			"@stylistic": stylistic
+			stylistic
 		},
-		extends: [
-			tseslint.configs.strictTypeChecked,
-			tseslint.configs.stylisticTypeChecked,
-			tseslint.configs.eslintRecommended,
-			stylistic.configs.recommended,
-			...(react.configs.flat["recommended"] ? [react.configs.flat["recommended"]] : []),
-			...(react.configs.flat["jsx-runtime"] ? [react.configs.flat["jsx-runtime"]] : []),
-			reactRefresh.configs.recommended,
-			reactHooks.configs["recommended-latest"],
-			preferFunctionComponent.configs.recommended,
-			eslintConfigPrettier
-		],
 		settings: {
 			react: {
 				version: "detect"
@@ -49,6 +46,8 @@ export default tseslint.config(
 			"no-self-compare": "error",
 			"no-template-curly-in-string": "error",
 			"no-useless-assignment": "error",
+			"no-useless-rename": "error",
+			"no-nested-ternary": "error",
 			"curly": "error",
 			"default-case-last": "error",
 			"default-param-last": "error",
