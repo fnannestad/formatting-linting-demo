@@ -1,6 +1,6 @@
 # Linting and Formatting Demo
 
-Demonstrating some tools and configurations elaborated on in [a post on my blog](https://finnnannestad.com/blog/nitpicking).
+Demonstrating some tools and configurations elaborated on in [a post on my blog](https://finnnannestad.com/blog/linting-and-formatting).
 
 This is just a bare-bones React project built with Vite. The code itself is just to enable demonstration of the various tools.
 
