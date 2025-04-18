@@ -27,8 +27,12 @@ export default tseslint.config(
 	tseslint.configs.strictTypeChecked,
 	tseslint.configs.stylisticTypeChecked,
 	stylistic.configs.recommended,
-	...(react.configs.flat["recommended"] ? [react.configs.flat["recommended"]] : []),
-	...(react.configs.flat["jsx-runtime"] ? [react.configs.flat["jsx-runtime"]] : []),
+	...(react.configs.flat["recommended"]
+		? [react.configs.flat["recommended"]]
+		: []),
+	...(react.configs.flat["jsx-runtime"]
+		? [react.configs.flat["jsx-runtime"]]
+		: []),
 	reactHooks.configs["recommended-latest"],
 	reactRefresh.configs.recommended,
 	preferFunctionComponent.configs.recommended,
@@ -45,7 +49,6 @@ export default tseslint.config(
 		plugins: {
 			react,
 			stylistic,
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 			spellcheck
 		},
 		settings: {
@@ -69,9 +72,15 @@ export default tseslint.config(
 			"default-param-last": "error",
 			"eqeqeq": "error",
 			"prefer-template": "error",
-			"react/jsx-curly-brace-presence": ["error", { props: "never", children: "never" }],
+			"react/jsx-curly-brace-presence": [
+				"error",
+				{ props: "never", children: "never" }
+			],
 			"react/jsx-fragments": ["error", "syntax"],
-			"react/jsx-no-useless-fragment": ["error", { allowExpressions: true }],
+			"react/jsx-no-useless-fragment": [
+				"error",
+				{ allowExpressions: true }
+			],
 			"react/jsx-newline": ["error", { prevent: true }],
 			"react/self-closing-comp": "error",
 			"spellcheck/spell-checker": [
